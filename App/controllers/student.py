@@ -10,7 +10,7 @@ def add_student(student_id, student_name):
   db.session.commit()
   return {"message": f"student {student_name} has been added."}
 
-def search_student(student_id, student_name):
+def search_student(student_id):
   if Student.query.filter_by(student_id=student_id).first():
     return student.get_json()
   else:
