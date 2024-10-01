@@ -9,7 +9,11 @@ from App.controllers import ( create_user, get_all_users_json, get_all_users, in
 from App.models import Student 
 from App.models import Student_reviews
 from App.controllers import (
-    
+    add_student,
+    search_student,
+    add_review,
+    view_student_reviews,
+)
 
 
 # This commands file allow you to create convenient CLI commands for testing controllers
@@ -32,6 +36,8 @@ User Commands
 # create a group, it would be the first argument of the comand
 # eg : flask user <command>
 user_cli = AppGroup('user', help='User object commands') 
+student = AppGroup('student', help = 'student object commands')
+student_reviews = AppGroup('student_reviews', help = 'student_reviews object commands')
 
 # Then define the command and any parameters and annotate it with the group (@)
 @user_cli.command("create", help="Creates a user")
@@ -41,6 +47,14 @@ def create_user_command(username, password):
     create_user(username, password)
     print(f'{username} created!')
 
+@user_cli.command("add_student", help = "Add new student to database")
+@click.argument("student_id")
+@click.argument("student_name")
+def add_student_command(student_id, student_name):
+    print(add_student(student_id, student_name)
+
+@user_cli.command("search_student", help = "Search for student in database")
+@cli.argument
 # this command will be : flask user create bob bobpass
 
 @user_cli.command("list", help="Lists users in the database")
