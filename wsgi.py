@@ -51,10 +51,26 @@ def create_user_command(username, password):
 @click.argument("student_id")
 @click.argument("student_name")
 def add_student_command(student_id, student_name):
-    print(add_student(student_id, student_name)
+    print(add_student(student_id, student_name))
 
 @user_cli.command("search_student", help = "Search for student in database")
-@cli.argument
+@cli.argument("student_id")
+def search_student_command(student_id):
+    print(search_student(student_id))
+
+@user_cli.command("add_review", help = "Add new review for student in database")
+@click.argument("student_id")
+@click.argument("staff_id")
+@click.argument("review_description")
+@click.argument("rating", default = 0)
+def add_review_command(student_id, staff_id, review_description, rating):
+    print(add_review(student_id, staff_id, review_description, rating))
+
+@user_cli.command("view_student_reviews", help = "View all reviews for a student in database")
+@click.argument("student_id")
+def view_student_reviews_command(student_id):
+    print(view_student_reviews(student_id))
+
 # this command will be : flask user create bob bobpass
 
 @user_cli.command("list", help="Lists users in the database")
@@ -66,6 +82,8 @@ def list_user_command(format):
         print(get_all_users_json())
 
 app.cli.add_command(user_cli) # add the group to the cli
+app.cli.add.command(student)
+app.cli.add.command(student_reviews)
 
 '''
 Test Commands
