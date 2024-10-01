@@ -1,4 +1,5 @@
 from App.database import db
+from .user import User
 
 class Student(db.Model):
     student_id = db.Column(db.Integer, primary_key = True, unique = True)
