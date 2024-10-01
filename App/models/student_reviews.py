@@ -8,6 +8,12 @@ class Student_reviews(db.Model):
     review_description = db.Column(db.String(255), nullable = False)
     rating = db.Column(db.Integer, nullable = False)
 
+    def __init__(self, student_id, staff_id, review_description, rating):
+        self.student_id = student_id
+        self.staff_id = staff_id
+        self.review_description = review_description
+        self.rating = rating
+    
     def validate_rating(self, key, rating):
         if rating < 0 or rating > 5:
             raise ValueError("Rating must be between 0 and 5")
