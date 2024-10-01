@@ -1,7 +1,7 @@
 from App.database import db
 from .user import User
 
-class Student_review(db.Model):
+class Student_reviews(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     student_id = db.Column(db.Integer, db.ForeignKey(Student.student_id), nullable = False)
     staff_id = db.Column(db.Integer, db.ForeignKey(Staff.staff_id), nullable = False)
