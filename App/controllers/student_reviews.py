@@ -1,7 +1,7 @@
 from App.models import Student_reviews
 from App.database import db
 
-def add_review(student_id, review_description, rating):
+def add_review(student_id, staff_id, review_description, rating):
   if not Student.query.get(student_id):
     return {"message": "student does not exist"}
 
