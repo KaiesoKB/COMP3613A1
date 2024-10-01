@@ -1,3 +1,6 @@
+from App.models import Student
+from App.database import db
+
 def add_student(student_id, student_name):
   if Student.query.filter_by(student_id=student_id).first():
     return {"message": "Student already exists."}
