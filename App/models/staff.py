@@ -1,3 +1,6 @@
+from App.database import db
+from .user import User
+
 class Staff(db.Model):
     staff_id = db.Colmumn(db.Integer, primary key = True, unique = True)
     name = db.Column(db.String(30), nullable=False)
