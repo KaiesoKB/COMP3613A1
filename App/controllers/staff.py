@@ -1,4 +1,5 @@
-
+from App.models import Staff
+from App.database import db
 
 def add_review(student_id, staff_id, review_description, rating):
   if not Student.query.get(student_id):
